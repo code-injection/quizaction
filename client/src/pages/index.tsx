@@ -30,7 +30,7 @@ function Home({ data }: { data: HelloResponse }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="flex min-h-screen items-center justify-center">
+        <div className="flex min-h-[70vh] items-center justify-center">
           <div className="group flex flex-row items-center gap-2 p-24">
             <GripVertical
               size={58}
