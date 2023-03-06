@@ -18,11 +18,15 @@ import (
 // TODO: Add config
 
 func main() {
+	config, err := NewConfig()
+	if err != nil {
+		panic(err)
+	}
+
 	e := echo.New()
 
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"*"},
-		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+		AllowOrigins: config.HTTP.CorsAllowOrigin,
 	}))
 
 	ur := user.NewInMemRepo()
@@ -38,7 +42,7 @@ func main() {
 	e.GET("/users/:username", uh.GetUser)
 	e.POST("/users", uh.CreateUser)
 
-	e.Logger.Fatal(e.Start(":80"))
+	e.Logger.Fatal(e.Start(":" + config.HTTP.Port))
 }
 
 // Example Hello Response DTO. Will be gone tomorrow... 🌨️

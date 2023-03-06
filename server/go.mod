@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/google/uuid v1.3.0
 	github.com/labstack/echo/v4 v4.10.1
+	github.com/sethvargo/go-envconfig v0.9.0
 	github.com/swaggo/swag v1.8.10
 	golang.org/x/crypto v0.6.0
 )

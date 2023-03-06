@@ -15,8 +15,10 @@ services:
       dockerfile: "Dockerfile.dev"
     container_name: quizaction-backend
     environment:
-      SERVER_PORT: 80
-      POSTGRES_CONNSTRING: postgresql://public:public@quizaction-db/quizaction?sslmode=disable
+      HTTP_PORT: "80"
+      LOG_LEVEL: "debug"
+      POSTGRES_CONNSTRING: postgresql://root:secret@quizaction-db/quizaction?sslmode=disable
+      CORS_ALLOW_ORIGINS: http://localhost:3000
     ports:
       - 8080:80
     depends_on:
